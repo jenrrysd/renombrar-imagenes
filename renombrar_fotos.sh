@@ -1,15 +1,11 @@
 #!/bin/bash
 
 echo " "
-echo "Ecribe la ruta de la carpeta que contiene las
-imagenes para renombrarlo numericamente, si la carpeta
-estubiera entrecomillado porfavor NO ingrese las comillas
-use solo el nombre de la carpeta"
+echo "RENOMBRAR IMAGENES"
 echo " "
-read -p "Escribe el nombre de la carpeta: " carpeta
-
-# Ruta de la carpeta donde están las imágenes
-#carpeta="fotos/"
+read -p "Paso 1 - Escribe el nombre de la carpeta: " carpeta
+read -p "Paso 2 - A partir de que numero quieres que empize a renombrar?
+escribe un numero y da enter: " numero
 
 # Verificar si la carpeta existe
 if [ ! -d "$carpeta" ]; then
@@ -18,7 +14,8 @@ if [ ! -d "$carpeta" ]; then
 fi
 
 # Contador para los nombres secuenciales
-contador=1
+# A partir de que numero quieres que empieze a renombrar?
+contador=$numero
 
 # Recorrer todos los archivos .jpeg en la carpeta
 for archivo in "$carpeta"/*.{jpeg,jpg,png,JPEG,JPG,PNG}; do
